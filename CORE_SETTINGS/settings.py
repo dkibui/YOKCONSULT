@@ -17,6 +17,7 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', config('ALLOWED_HOST')]
 
+
 # Application definition
 INSTALLED_APPS = [
     "entry_app.apps.EntryAppConfig",
@@ -27,6 +28,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # pip installed apps
+    "ckeditor",
+    "ckeditor_uploader",
 ]
 
 MIDDLEWARE = [
@@ -100,14 +104,64 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+STATIC_URL = "static/"
+MEDIA_URL = 'media/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# in case browser has problems displaying uploaded images in the image upload window
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        # 'skin': 'moono',
+        'toolbar_Basic': [
+            ['-', 'Bold', 'Italic']
+        ],
+        'toolbar_YourCustomToolbarConfig': [
+            {'name': 'basicstyles',
+             'items': ['Bold', 'Italic', 'Underline', 'Subscript', 'Superscript', 'RemoveFormat']},
+            {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-',
+                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'Blockquote']},
+            {'name': 'links', 'items': ['Link', 'Unlink']},
+            # '/',
+            {'name': 'styles', 'items': ['Format']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            {'name': 'insert',
+             'items': ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar']},
+            
+        ],
+        'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
+        'width': '100%',
+        'tabSpaces': 4,
+        'extraPlugins': ','.join([
+            'uploadimage', # the upload image feature
+            # your extra plugins here
+            'div',
+            'autolink',
+            'autoembed',
+            'embedsemantic',
+            'autogrow',
+            # 'devtools',
+            'widget',
+            'lineutils',
+            'clipboard',
+            'dialog',
+            'dialogui',
+            'elementspath'
+        ]),
+    }
+}

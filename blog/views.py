@@ -11,5 +11,9 @@ def index(request):
 
 
 def blog_detail(request, slug):
-    blogs = Blog.active_blog.all()
+    context = {}
+    blog = Blog.objects.get(slug=slug)
+    context['object'] = blog
+    print(blog) 
+    return render(request, "blog/a-blog.html", context)
 

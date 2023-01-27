@@ -1,0 +1,23 @@
+{% extends 'layout/base.html'  %}
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock stylesheet %}
+{% block content %}
+
+<div class="page-header">
+    <h1>Welcome to the blogs!</h1>
+</div>
+<div class="width-smaller">
+    <h1>{{object.title | safe | title }}</h1>
+    <div><span>{{blog.category}}</span></div>
+    <div><span>{{blog.date_posted}}</span></div>
+    <div>{{ object.content | safe }}</div>
+</div>
+
+<div class="address width-smaller">
+</div>
+
+{% endblock content %}
+

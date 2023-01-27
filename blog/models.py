@@ -3,9 +3,9 @@ from django.utils.text import slugify
 from django.contrib.auth.models import User
 
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
-# Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
@@ -17,23 +17,16 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
 
 
-class ActiveBlogManager(models.Model):
-    def get_queryset(self):
-        return super().get_queryset().filter(active=1)
-
-
 class Blog(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    content = RichTextField()
+    content = RichTextUploadingField()   
     slug = models.SlugField(max_length=255, unique=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, default=0, on_delete=models.CASCADE)
     active = models.BooleanField(default=False, help_text='Select to Publish. De-Select un-publish')
 
-    objects = models.Manager()
-    active_blog = ActiveBlogManager()
 
     class Meta:
         ordering = ['date_posted', 'author']
