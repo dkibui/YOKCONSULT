@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% block head %}
+        {% endblock head %}
+        <link rel="shortcut icon" href="{% static 'images/brand/favicon.png' %}" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        {% block stylesheet %}
+        {% endblock stylesheet %}
+        {% block title %}
+        <title>
+            Nairobi Consulting | Human Development, Climate Change, Renewable Energy & Small Farmer Agriculture
+        </title>
+        <meta name="description"
+            content="Expert consulting services in Nairobi, Kenya. We specialize in human development organization funding, climate change, renewable energy, and agricultural development for small farmers.">
+        <meta name="keywords"
+            content="Nairobi, consulting, human development, funding, climate change, renewable energy, agriculture, small farmers, Kenya">
+        <link rel="canonical" href="https://www.yokconsulting.com/">
+        <meta property="og:title"
+            content="Nairobi Consulting | Human Development, Climate Change, Renewable Energy and Small Farmer Agriculture">
+        <meta property="og:description"
+            content="Expert consulting services in Nairobi, Kenya. We specialize in human development organization funding, climate change, renewable energy, and agricultural development for small farmers.">
+        <meta property="og:image" content="https://www.yokconsulting.com/images/logo.png">
+        <meta property="og:url" content="https://www.yokconsulting.com/">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title"
+            content="Nairobi Consulting | Human Development, Climate Change, Renewable Energy & Small Farmer Agriculture">
+        <meta name="twitter:description"
+            content="Expert consulting services in Nairobi, Kenya. We specialize in human development organization funding, climate change, renewable energy, and agricultural development for small farmers.">
+        <meta name="twitter:image" content="https://www.yokconsulting.com/images/logo.png">
+        {% endblock title %}
+    </head>
+
+    <body>
+        {% include "layout/includes/nav.html" %}
+        {% block content %}
+        {% endblock content %}
+        {% include "layout/includes/footer.html" %}
+        {% block script %}
+        {% endblock script %}
+    </body>
+
+</html>

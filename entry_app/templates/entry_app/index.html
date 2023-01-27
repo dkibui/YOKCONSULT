@@ -1,0 +1,62 @@
+{% extends 'layout/base.html'  %}
+{%  load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock stylesheet %}
+
+{% block content %}
+{% include 'entry_app/includes/header.html' %}
+{% include 'entry_app/includes/partners.html' %}
+
+<article class="width whyus">
+    <h2>Why us?</h2>
+    <div class="why-us-grid">
+        <section class="reason">
+            <p>
+                We're dedicated to creating happy customers. We can be relied upon and we are relied upon. Honest,
+                flexible and agile, we fast-track key initiatives giving you certainty of the best outcome.
+            </p>
+        </section>
+        <section class="details">
+            <div class="text">
+                <h3>Truly Independent</h3>
+                <p>
+                    Our advice is for you and you only. We have intimate knowledge of all digital technology vendor landscapes but remain commercially independent at all times.
+                </p>
+            </div>
+            <div class="text">
+                <h3>Brilliant Delivery</h3>
+                <p>
+                    Our team are all emotionally invested to delight our clients, blending business and digital
+                    technology skills with a deep understanding of people, culture and change.
+                </p>
+            </div>
+            <div class="text">
+                <h3>Flawless Execution</h3>
+                <p>
+                    With know-how and IP we fast-track initiatives and deliver change safely. We enhance performance through digital technology, ensuring your investments deliver optimal value.
+                </p>
+            </div>
+            <div class="text">
+                <h3>Market Expertise</h3>
+                <p>
+                    An objective guiding voice drawing on intimate knowledge of the digital marketplace, current trends, vendor technology roadmaps and innovation.
+                </p>
+            </div>
+        </section>
+    </div>
+</article>
+
+<section class="end">
+    <div>
+        <img src="{% static 'images/global map.svg' %}" alt="svg global map">
+    </div>
+    <div class="width">
+        <h3>Contact our professionals</h3>
+        <p>Call us today +254(0)726528871</p>
+        <button class="contact">More details</button>
+    </div>
+</section>
+{% endblock content %}

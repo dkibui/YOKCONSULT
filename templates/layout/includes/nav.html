@@ -1,0 +1,18 @@
+{% load static %}
+
+<section class="top-nav">
+  <div class="logo-container">
+    <a href="/"><img class="logo" src="{% static 'images/brand/yok_logo.png' %}" alt="yok-logo"></a>
+  </div>
+  <input id="menu-toggle" type="checkbox" />
+  <label class='menu-button-container' for="menu-toggle">
+    <div class='menu-button'></div>
+  </label>
+  <div class="menu">
+    <span><a href="/">home</a></span>
+    <span><a href="/blog">blogs</a></span>
+    <span><a href="/service">our services</a></span>
+    <span><a href="/about">about</a></span>
+    <span><a href="/contact">contact</a></span>
+  </div>
+</section>
