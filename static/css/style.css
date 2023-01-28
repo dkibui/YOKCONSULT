@@ -257,7 +257,6 @@ p {
 .whyus {
   margin-top: 4.2rem;
   margin-bottom: 4.8rem;
-
 }
 
 .reason {
@@ -291,13 +290,24 @@ p {
   Beginning of body styles 
 */
 .page-header {
-  background-color: var(--pri);
+  background-color: var(--third);
   padding: 2rem 0;
   margin-bottom: 3.2rem;
 }
 
 .page-header h1 {
   color: var(--white);
+}
+
+.blog-content {
+  width: 620px;
+  margin: 0 auto 0 auto;
+}
+
+.blog-content img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
 }
 
 .form-and-map {
