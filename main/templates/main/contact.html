@@ -1,0 +1,56 @@
+{% extends 'layout/base.html'  %}
+{% load static %}
+
+{% block content %}
+<div class="container w-11/12 mx-auto mt-16 md:mt-20">
+    <div class="">
+        <h1 class="text-2xl md:text-3xl font-semibold text-gray-800 my-8 md:mb-14">We want to hear from you!</h1>
+    </div>
+</div>
+
+<div class="container w-11/12 mx-auto mb-6 md:mb-10">
+    <div class="flex gap-3 items-center mb-1">
+        <i class="fa-solid fa-phone-volume text-lg text-red-400"></i>
+        <p>+254 (0)726 528 871</p>
+    </div>
+    <div class="flex gap-3 items-center mb-1">
+        <i class="fa-solid fa-globe text-lg text-blue-400"></i>
+        <p>yokconsulting.com</p>
+    </div>
+    <div class="flex gap-3 items-start" mb-1>
+        <i class="fa-solid fa-location-dot text-lg text-green-400"></i>
+        <div>
+            <p>51 Lenana Road, Suite A4</p>
+            <p>Junction of Wood Avenue and Lenana Road,</p>
+            <p>Nairobi, Kenya.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container w-11/12 mx-auto">
+    <div class="">
+        <div>
+            <h2 class="text-xl font-semibold text-gray-700 mb-3">Have a question?</h2>
+            <p class="text-lg text-gray-500 mb-2">Write to us!</p>
+        </div>
+
+        <div class="grid items-start grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="mb-6 md:mb-10">
+                <form action="" method="post">
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                        <div class="mb-1">{{field.errors}}</div>
+                        <div class="mb-1">{{field}}</div>
+                    {% endfor %}
+                    <div><button class="mt-2 bg-blue-500 py-5 px-8 text-white rounded-full" type="submit">SEND MESSAGE</button></div>
+                </form>
+            </div>
+
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31910.467133441256!2d36.785206!3d-1.289186!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5d40e08ac186b424!2sLenana%20Suites!5e0!3m2!1sen!2sus!4v1674495697902!5m2!1sen!2sus" width="600"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

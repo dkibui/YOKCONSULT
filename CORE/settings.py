@@ -5,22 +5,33 @@ from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Allowed IPs
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config("DEBUG", default=False, cast=bool)
 TEMPLATE_DEBUG = DEBUG
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config("SECRET_KEY")
 
-EMAIL_HOST = config('EMAIL_HOST', default='localhost')
-EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', config('ALLOWED_HOST')]
+EMAIL_HOST = config("EMAIL_HOST", default="localhost")
+EMAIL_PORT = config("EMAIL_PORT", default=25, cast=int)
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", default="")
+EMAIL_HOST_USER = config("EMAIL_HOST_USER", default="")
+EMAIL_USE_TLS = config("EMAIL_USE_TLS", default=False, cast=bool)
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", config("ALLOWED_HOST")]
+
+
+# Tailwind registration
+TAILWIND_APP_NAME = 'theme'
+
+# Nodejs path
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 
 # Application definition
 INSTALLED_APPS = [
-    "entry_app.apps.EntryAppConfig",
+    "main.apps.MainConfig",
     "blog.apps.BlogConfig",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -28,6 +39,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Tailwind Configs
+    "tailwind",
+    "theme",
+    "django_browser_reload",
     # pip installed apps
     "ckeditor",
     "ckeditor_uploader",
@@ -41,9 +56,10 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
-ROOT_URLCONF = "CORE_SETTINGS.urls"
+ROOT_URLCONF = "CORE.urls"
 
 TEMPLATES = [
     {
@@ -61,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "CORE_SETTINGS.wsgi.application"
+WSGI_APPLICATION = "CORE.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -105,63 +121,88 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 STATIC_URL = "static/"
-MEDIA_URL = 'media/'
+MEDIA_URL = "media/"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    BASE_DIR / "theme/static/css/dist/",
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-CKEDITOR_UPLOAD_PATH = 'uploads/'
-CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 
 # Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # in case browser has problems displaying uploaded images in the image upload window
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+X_FRAME_OPTIONS = "SAMEORIGIN"
 
 CKEDITOR_CONFIGS = {
-    'default': {
+    "default": {
         # 'skin': 'moono',
-        'toolbar_Basic': [
-            ['-', 'Bold', 'Italic']
-        ],
-        'toolbar_YourCustomToolbarConfig': [
-            {'name': 'basicstyles',
-             'items': ['Bold', 'Italic', 'Underline', 'Subscript', 'Superscript', 'RemoveFormat']},
-            {'name': 'paragraph',
-             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-',
-                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'Blockquote']},
-            {'name': 'links', 'items': ['Link', 'Unlink']},
+        "toolbar_Basic": [["-", "Bold", "Italic"]],
+        "toolbar_YourCustomToolbarConfig": [
+            {
+                "name": "basicstyles",
+                "items": [
+                    "Bold",
+                    "Italic",
+                    "Underline",
+                    "Subscript",
+                    "Superscript",
+                    "RemoveFormat",
+                ],
+            },
+            {
+                "name": "paragraph",
+                "items": [
+                    "NumberedList",
+                    "BulletedList",
+                    "-",
+                    "Outdent",
+                    "Indent",
+                    "-",
+                    "JustifyLeft",
+                    "JustifyCenter",
+                    "JustifyRight",
+                    "JustifyBlock",
+                    "-",
+                    "Blockquote",
+                ],
+            },
+            {"name": "links", "items": ["Link", "Unlink"]},
             # '/',
-            {'name': 'styles', 'items': ['Format']},
-            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
-            {'name': 'insert',
-             'items': ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar']},
-            
+            {"name": "styles", "items": ["Format"]},
+            {"name": "colors", "items": ["TextColor", "BGColor"]},
+            {
+                "name": "insert",
+                "items": ["Image", "Table", "HorizontalRule", "Smiley", "SpecialChar"],
+            },
         ],
-        'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
-        'width': '100%',
-        'tabSpaces': 4,
-        'extraPlugins': ','.join([
-            'uploadimage', # the upload image feature
-            # your extra plugins here
-            'div',
-            'autolink',
-            'autoembed',
-            'embedsemantic',
-            'autogrow',
-            # 'devtools',
-            'widget',
-            'lineutils',
-            'clipboard',
-            'dialog',
-            'dialogui',
-            'elementspath'
-        ]),
+        "toolbar": "YourCustomToolbarConfig",  # put selected toolbar config here
+        "width": "100%",
+        "tabSpaces": 4,
+        "extraPlugins": ",".join(
+            [
+                "uploadimage",  # the upload image feature
+                # your extra plugins here
+                "div",
+                "autolink",
+                "autoembed",
+                "embedsemantic",
+                "autogrow",
+                # 'devtools',
+                "widget",
+                "lineutils",
+                "clipboard",
+                "dialog",
+                "dialogui",
+                "elementspath",
+            ]
+        ),
     }
 }

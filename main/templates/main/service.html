@@ -1,0 +1,90 @@
+{% extends 'layout/base.html'  %}
+{% load static %}
+
+{% block stylesheet %}
+{% endblock stylesheet %}
+
+{% block content %}
+{% include 'main/includes/header.html' %}
+
+<div class="w-11/12 mx-auto mt-14 md:mt-24">
+    <h1 class="mx-auto text-center text-3xl md:text-4xl font-bold">
+        Welcome to Our Services Page.
+    </h1>
+</div>
+
+<div class="w-11/12 mx-auto mt-4">
+    <h2 class="text-center text-gray-700 md:text-xl text-lg max-w-4xl mx-auto">
+        We specialize in capital raising, renewable energy, climate change and agricultural investment. Our mission is
+        to help businesses and investors tackle today's most pressing issues and create a more sustainable future for
+        all.
+    </h2>
+</div>
+
+<div class="w-11/12 mx-auto my-14 md:my-24">
+    <div class="container mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div
+            class="rounded p-6 shadow bg-gray-800 hover:bg-gray-700">
+            <h3 class="mb-2.5 text-2xl font-bold tracking-tight text-white">
+                Capital Raising
+            </h3>
+            <p class="font-normal text-gray-400">
+                Our team of has extensive experience in securing financing for a wide range of renewable energy, climate
+                change and agricultural investment projects. Whether you need seed funding, growth capital or project
+                financing. We will guide you to understand what's needed to secure good funding at the right terms.
+            </p>
+        </div>
+
+        <div
+            class="rounded p-6 shadow bg-gray-800 hover:bg-gray-700">
+            <h3 class="mb-2.5 text-2xl font-bold tracking-tight text-white">
+                Renewable Energy
+            </h3>
+            <p class="font-normal text-gray-400">
+                The world is moving towards a low-carbon future and renewable energy is at the forefront of this
+                transition. Our consultants have a deep understanding of the renewable energy sector and are
+                well-positioned to help you identify and secure investment opportunities in this fast-growing industry.
+            </p>
+        </div>
+
+        <div
+            class="rounded p-6 shadow bg-gray-800 hover:bg-gray-700">
+            <h3 class="mb-2.5 text-2xl font-bold tracking-tight text-white">
+                Climate Change
+            </h3>
+            <p class="font-normal text-gray-400">
+                Climate change is the biggest challenge facing humanity and the world needs innovative solutions to
+                tackle it. We work with clients across the private and public sectors to help them understand the impact
+                of climate change on their business and develop strategies to reduce their carbon footprint.
+            </p>
+        </div>
+
+        <div
+            class="rounded p-6 shadow bg-gray-800 hover:bg-gray-700">
+            <h3 class="mb-2.5 text-2xl font-bold tracking-tight text-white">
+                Agricultural Investment
+            </h3>
+            <p class="font-normal text-gray-400">
+                Agricultural investment is critical for securing a sustainable food supply for a growing global
+                population. We help clients identify investment opportunities in agriculture. We work with farmers in
+                small scale sustainable farming projects to large scale agribusiness farmers working across countries.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="w-11/12 mx-auto mb-14 md:mb-20">
+    <p class="text-center text-gray-700 md:text-xl text-lg max-w-4xl mx-auto mb-8">
+        Together our services form a comprehensive solution for businesses and investors looking to create value in a
+        more sustainable manner.
+    </p>
+    <p class="text-center text-gray-700 md:text-xl text-lg max-w-4xl mx-auto mb-8">
+        Whether you are a start up looking to secure seed funding, a large corporation looking to reduce your carbon
+        footprint or an investor looking to diversify your portfolio we have the expertise and experience to help you
+        achieve your goals.
+    </p>
+    <p class="text-center text-gray-700 md:text-xl text-lg max-w-4xl mx-auto">
+        Contact us today to learn more about our services and how we can help you create a more sustainable future.
+    </p>
+</div>
+{% endblock content %}

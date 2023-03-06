@@ -1,0 +1,166 @@
+{% load static %}
+
+{% block head %}
+<style>
+    .content {
+        min-height: 450px;
+        background-color: black;
+    }
+    
+      .content .item {
+        max-width: 90%;
+        margin: auto;
+        color: white;
+        text-align: center;
+      }
+    
+      .content h1 {
+        font-size: 2.5rem;
+        animation: fadeinup 0.5s ease-in-out;
+      }
+    
+      .content h2 {
+        line-height: 1.5;
+        font-size: 1.275rem;
+        font-weight: 300;
+        animation: fadeinup 0.5s ease-in-out 0.2s;
+        animation-fill-mode: both;
+      }
+    
+      .content1 {
+        background: url("/static/images/header/agri-business.jpg") no-repeat center center/cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .content2 {
+        background: url("/static/images/header/climate.jpg") no-repeat center center/cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: black;
+      }
+    
+      .content h1,
+      .content h2 {
+        color: var(--white);
+        {% comment %} text-shadow: 3px 4px 6px rgba(0, 0, 0, 0.75); {% endcomment %}
+      }
+    
+      .content3 {
+        background: url("/static/images/header/informal.jpg") no-repeat center center/cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .swiper-pagination .swiper-pagination-bullet {
+        background: white;
+        opacity: 0.25;
+      }
+      
+      .swiper-pagination .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #024fb4;
+      }
+ 
+      /* Animation keyframes */
+      @keyframes fadeinup {
+        0% {
+          opacity: 0;
+          transform: translateY(140px);
+        }
+    
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    
+      @media (min-width: 720px) {
+        .content {
+          min-height: 600px;
+        }
+    
+        .content h1 {
+          font-size: 3.5rem;
+        }
+    
+        .content h2 {
+          max-width: 820px;
+        }
+      }
+  </style>
+{% endblock head %}
+
+{% block stylesheet %}
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+{% endblock stylesheet %}
+
+{% block content %}
+<div class="hero-area">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="content content1">
+                    <div class="item">
+                      <h1 class="font-bold">Agribusiness and Farming</h1>
+                      <h2>
+                        Agriculture remains the key driver of growth in East African
+                        Countries and a major contributor to poverty reduction.
+                      </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="content content2">
+                    <div class="item">
+                      <h1 class="font-bold">Climate and Sustainability</h1>
+                      <h2>
+                        Climate and Renewable Energy financing across Decentralized
+                        Renewable Energy business models.
+                      </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="content content3">
+                    <div class="item">
+                      <h1 class="font-bold">Empowering People in Africa</h1>
+                      <h2>
+                        The savannahs of Africa cover a mind-boggling 600 mn ha. This is a
+                        reflection of the potential of Sub Saharan Africa.
+                      </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        autoplay: {
+            delay: 2800,
+            disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          type: 'bullets',
+          clickable: true,
+        },
+        });
+    </script>
+{% endblock script %}
+

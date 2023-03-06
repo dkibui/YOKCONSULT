@@ -1,0 +1,68 @@
+{% block head %}
+<style>  
+  .card {
+    padding: 1.2rem;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    border: 1px solid #ffffff50;
+  }
+</style>
+{% endblock head %}
+
+{% block content %}
+<div class="bg-teal-600 py-16 md:py-20">
+    <section class="container mx-auto w-11/12">
+      <div class="flex gap-4 items-center mb-11 md:mb-14">
+        <i class="fa-solid fa-handshake block  text-gray-200"></i>
+        <h2 class="inline-block pb-1 border-b-2 border--gray-200 text-gray-200 text-sm md:text-lg font-normal uppercase">Our Partners</h2>
+    </div>
+      <h3 class="text-white text-2xl max-w-[720px] mb-12">
+        Be careful the environment you choose for it will shape you, be careful
+        the friends you choose for you will become like them - <span class="text-white italic text-lg ">W. Clement Stone</span>
+      </h3>
+      <p class="text-white md:text-lg pb-10 md:pb-14">
+        We work closely with an array of Partners including Venture Capital and
+        Private Equity firms, SME Funds and other firms. We also engage closely
+        with experts from different fields to deliver assignments requiring
+        cross-cutting solutions. Having a broad of the professionals as partners
+        means that Yok can offer a 'one stop shop' for professional services for
+        enterprises. These are some of our partners.
+      </p>
+      <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-6">
+        <div class="slide-content-container card">
+          <h4 class="text-white text-base font-bold">Agra Capital</h4>
+          <p class="text-white">
+            Agra Capital engineers global ventures in infrastructure and related
+            sectors to generate deep value for investors and entrepreneurs.
+          </p>
+        </div>
+        <div class="slide-content-container card">
+          <h4 class="text-white text-base font-bold">PFAN</h4>
+          <p class="text-white">
+            PFAN is a Private Financing Advisory Network matches high potential
+            Climate and Clean Energy projects with local professionals.
+          </p>
+        </div>
+        <div class="slide-content-container card">
+          <h4 class="text-white text-base font-bold">InvestEnW</h4>
+          <p class="text-white">
+            Invest East and West are experts in Renewable Energy and Investments.
+            Has a reference of over 150MW in different sectors in RE.
+          </p>
+        </div>
+        <div class="slide-content-container card">
+          <h4 class="text-white text-base font-bold">ACMIRS</h4>
+          <p class="text-white">
+            ACMIRS Consulting is an investment, infrastructure and management
+            advisory firm working in the public and private sector.
+          </p>
+        </div>
+      </main>
+    </section>
+  </div>
+{% endblock content %}
+
+{% block script %}
+
+{% endblock script %}
+

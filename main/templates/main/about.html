@@ -1,0 +1,150 @@
+{% extends 'layout/base.html'  %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<style>
+
+</style>
+{% endblock stylesheet %}
+{% block content %}
+
+<div class="w-11/12 container mx-auto mt-24 md:mt-28 mb-14 md:mb-20">
+    <p class="text-center uppercase text-xs md:text-sm font-semibold text-gray-500 pb-2 md:pb-5">About Yok</p>
+    <h1 class="text-3xl md:text-5xl font-semibold leading-tight md:leading-snug text-gray-800 max-w-xl mx-auto text-center">Our mission is to make your
+        investment worthwhile
+    </h1>
+    <h2 class="text-lg md:text-2xl font-medium text-gray-500 max-w-4xl mx-auto mt-6 md:mt-16 text-center">
+        We specialize in capital raising, renewable energy, climate change and agricultural investment. Our mission is to help businesses and investors tackle today's most pressing issues while creating a more sustainable future for all.
+    </h2>
+</div>
+
+<hr class="border-1">
+
+<div class="container w-11/12 mx-auto mt-14 md:mt-28 mb-14 md:mb-20">
+    <h2 class="text-3xl md:text-5xl font-semibold leading-tight md:leading-snug text-gray-800 mb-4 md:mb-8">
+        The team to get you get started
+    </h2>
+    <p class="text-lg md:text-2xl font-semibold text-gray-500 pb-2 md:pb-5">
+        We have a pool of knowledgeable business leaders and change agents with whom we work with. Our experts have diverse experience in strategy, business operations, business development and energy economics.
+    </p>
+</div>
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3.5 container w-11/12 mx-auto mt-14 md:mt-28"> 
+    <div class="flex flex-col p-8 gap-4 bg-lime-300 rounded-lg md:rounded-none">
+        <div>
+            <img src="{% static 'images/management/Martin-Theuri.jpg' %}" class="block w-20 h-20 rounded-full" alt="about us header image">
+        </div>
+        <h3 class="text-3xl md:text-4xl font-semibold leading-tight md:leading-snug text-gray-800 mt-4 md:mt-6 mb-4 md:mb-6">Martin Theuri</h3>
+        <p class="text-xl md:text-2xl mb-4">
+            Wanjohi has more than a decade of experience and expertise in early stage start up growth and SMEs advisory.
+        </p>
+        <ul class="">
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                B.Sc. in Mathematics from the University of Nairobi
+            </li>
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                MPPA, Kenyatta University
+            </li>
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                Certified Investment and Securities Analyst (CISA)
+            </li>
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                Chartered Financial Analysts (CFA) Level-I
+            </li>
+            <li class="pb-3 border-b last-of-type:border-0 border-gray-800 border-opacity-60 mb-3">
+                Climate change, Leadership and Financial Modelling training
+            </li>
+        </ul>
+    </div>
+
+    <div class="flex flex-col p-8 gap-4 bg-blue-300 rounded-lg md:rounded-none">
+        <div>
+            <img src="{% static 'images/management/Richard-Charagu.jpg' %}" class="block w-20 h-20 rounded-full" alt="about us header image">
+        </div>
+        <h3 class="text-3xl md:text-4xl font-semibold leading-tight md:leading-snug text-gray-800 mt-4 md:mt-6 mb-4 md:mb-6">Richard Charagu</h3>
+        <p class="text-xl md:text-2xl mb-4">
+            Charagu is an ex-Banker with expertise in project management and access to finance through commercial banking.
+        </p>
+        <ul class="">
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                B.A. in Economics from the University of Nairobi
+            </li>
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                Certified Chartered Financial Analysts (CFA) Level-I
+            </li>
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                Certified CPA Part-I
+            </li>
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                Certified CFA Level-II
+            </li>
+            <li class="pb-3 border-b last-of-type:border-0 border-gray-800 border-opacity-60 mb-3">
+                Highly experienced in operations and risk based financing
+            </li>
+        </ul>
+    </div>
+
+    <div class="flex flex-col p-8 gap-4 bg-slate-300 rounded-lg md:rounded-none">
+        <div>
+            <img src="{% static 'images/management/Nkasara-Gichuki.jpg' %}" class="block w-20 h-20 rounded-full" alt="photo of Nkasara Gichuki">
+        </div>
+        <h3 class="text-3xl md:text-4xl font-semibold leading-tight md:leading-snug text-gray-800 mt-4 md:mt-6 mb-4 md:mb-6">Nkasara Gichuki</h3>
+        <p class="text-xl md:text-2xl mb-4">
+            Nkasara is a marketer with experience in partnership management and operations. She is passionate about the Girl Child.
+        </p>
+        <ul class="">
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                B.A. in Political Science and Public Administration and Literature from the University of Nairobi
+            </li>
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                French language level B1 speaker
+            </li>
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                Certified as a digital age marketer
+            </li>
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                Trained in business analysis
+            </li>
+            <li class="pb-3 border-b last-of-type:border-0 border-gray-800 border-opacity-60 mb-3">
+                Trained in business model validation
+            </li>
+        </ul>
+    </div>
+    
+    <div class="flex flex-col p-8 gap-4 bg-red-300 rounded-lg md:rounded-none">
+        <div>
+            <img src="{% static 'images/management/Ayiemba-Ayieko.jpg' %}" class="block w-20 h-20 rounded-full" alt="photo of Nkasara Gichuki">
+        </div>
+        <h3 class="text-3xl md:text-4xl font-semibold leading-tight md:leading-snug text-gray-800 mt-4 md:mt-6 mb-4 md:mb-6">Ayiemba Ayieko</h3>
+        <p class="text-xl md:text-2xl mb-4">
+            Steve is an expert in financial modeling and business analysis. He is a Certified project manager and forensic accountant.
+        </p>
+        <ul class="">
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                BBA in Accounting from University of Eastern Africa, Baraton
+            </li>
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                 MSc. Finance from Jommo Kenyatta University, JKUAT
+            </li>
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                Certified ACCA holder
+            </li>
+            <li class="pb-3 border-b border-gray-800 border-opacity-60 mb-3">
+                Trained in business analysis and Project Management
+            </li>
+            <li class="pb-3 border-b last-of-type:border-0 border-gray-800 border-opacity-60 mb-3">
+                Trained in forensic accounting
+            </li>
+        </ul>
+    </div>
+</section>
+
+<div class="container w-11/12 mx-auto flex flex-col p-8 mt-2 md:mt-4 mb-14 md:mb-28 bg-gray-100 rounded-lg md:rounded-none">
+    <h3 class="text-3xl md:text-4xl font-semibold leading-tight md:leading-snug text-gray-800 mt-4 md:mt-6 mb-4 md:mb-6">We're ready to engage when you are</h3>
+    <p class="text-xl md:text-2xl mb-4">
+        We love helping our clients take their business from idea to launch. We have all the expertise you need to lauch.
+    </p>
+</div>
+
+{% endblock content %}
